@@ -1,0 +1,25 @@
+{
+  "name": "kushischool",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "@types/react": "^16.9.43",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.5.2",
+    "typescript": "^3.9.7"
+  }
+}
