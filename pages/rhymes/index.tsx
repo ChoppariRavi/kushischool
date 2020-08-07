@@ -9,7 +9,7 @@ const Rhymes = () => {
   }, [])
   const textHandler = React.useCallback(async () => {
     setOpen(true)
-    const res = await fetch('http://localhost:3000/api/rhymes')
+    const res = await fetch('/api/rhymes')
     const poems = await res.json()
     console.log(poems)
   }, [])
