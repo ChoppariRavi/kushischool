@@ -1,6 +1,8 @@
 const express = require("express");
+const serverless = require('serverless-http');
 const next = require("next");
 const { MongoClient } = require("mongodb");
+const server = express();
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -28,13 +30,17 @@ async function run() {
     app
       .prepare()
       .then(() => {
-        const server = express();
+        const router = express.Router();
+
         // Get Rhymes
         server.get("/api/rhymes", (req, res) => {
           console.log(rhymes[0]);
           res.setHeader("Content-Type", "application/json");
           res.end(JSON.stringify(rhymes[0]));
         });
+
+        // path must route to lambda
+        server.use('/.netlify/functions/server', router);  
 
         server.get("*", (req, res) => {
           return handle(req, res);
@@ -55,3 +61,6 @@ async function run() {
 }
 
 run().catch(console.dir);
+
+module.exports = server;
+module.exports.handler = serverless(server);
