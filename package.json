@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "node ssr-server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build",
     "export": "next export"
   },
   "keywords": [],
