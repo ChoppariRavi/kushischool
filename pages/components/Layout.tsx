@@ -4,7 +4,7 @@ export interface Props {
   children: any;
 }
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children }: Props): any => (
   <div>
     {/* Header */}
     <div className="grid grid-cols-1 shadow bg-blue-300">

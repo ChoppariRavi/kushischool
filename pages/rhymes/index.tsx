@@ -7,8 +7,11 @@ const Rhymes = () => {
   const onClose = React.useCallback(() => {
     setOpen(false)
   }, [])
-  const textHandler = React.useCallback(() => {
+  const textHandler = React.useCallback(async () => {
     setOpen(true)
+    const res = await fetch('http://localhost:3000/api/rhymes')
+    const poems = await res.json()
+    console.log(poems)
   }, [])
   const youTubeHandler = React.useCallback(() => {
     setOpen(true)
@@ -40,5 +43,14 @@ const Rhymes = () => {
     </>
   );
 };
+
+// export async function getStaticProps() {
+//   const res = await fetch('http://localhost:3000/api/rhymes')
+//   const poems = await res.json()
+//   console.log(poems)
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
 
 export default Rhymes;
